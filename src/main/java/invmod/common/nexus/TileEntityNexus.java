@@ -190,7 +190,7 @@ public class TileEntityNexus extends TileEntity implements INexusAccess, IInvent
 		}
 	}
 
-	public void debugStartInvaion(int startWave) {
+	public void debugStartInvasion(int startWave) {
 		mod_Invasion.tryGetInvasionPermission(this);
 		startInvasion(startWave);
 		this.activated=true;
@@ -241,7 +241,8 @@ public class TileEntityNexus extends TileEntity implements INexusAccess, IInvent
 			return;
 		}
 		while (this.mobsLeftInWave + this.mobsToKillInWave * 0.1F <= this.lastMobsLeftInWave) {
-			mod_Invasion.sendMessageToPlayers(this.getBoundPlayers(), EnumChatFormatting.GREEN, "invmod.message.nexus.stabilizedto", "" +  EnumChatFormatting.DARK_GREEN + (100 - (int) (100 * this.mobsLeftInWave / this.mobsToKillInWave)) + "%");
+			int mobsLeftInWavePercentage = (100 - (int) (100 * this.mobsLeftInWave / this.mobsToKillInWave));
+			mod_Invasion.sendMessageToPlayers(this.getBoundPlayers(), EnumChatFormatting.GREEN, "invmod.message.nexus.stabilizedto", "" +  EnumChatFormatting.DARK_GREEN + mobsLeftInWavePercentage + "%");
 			this.lastMobsLeftInWave = ((int) (this.lastMobsLeftInWave - this.mobsToKillInWave * 0.1F));
 		}
 	}

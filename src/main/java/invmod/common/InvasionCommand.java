@@ -18,7 +18,7 @@ public class InvasionCommand extends CommandBase {
 					int startWave = Integer.parseInt(args[1]);
 					if (mod_Invasion.getFocusNexus() != null) {
 						if(startWave > 0) {
-							mod_Invasion.getFocusNexus().debugStartInvaion(startWave);
+							mod_Invasion.getFocusNexus().debugStartInvasion(startWave);
 						} else {
 							sender.addChatMessage(new ChatComponentText("There are no waves before the first wave.").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
 						}
