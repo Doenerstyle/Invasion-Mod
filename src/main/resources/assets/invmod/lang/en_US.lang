@@ -39,11 +39,18 @@ entity.mod_Invasion.IMEgg.name=IM Spider Egg
 entity.mod_Invasion.IMTrap.name=Trap
 entity.mod_Invasion.IMImp.name=IM Imp
 
-invmod.waila.status.active=Status: Activated
-invmod.waila.status.activating=Status: Activating
-invmod.waila.status.deactivated=Status: Deactivated
+invmod.waila.status=Status:
+invmod.waila.status.active=Activated
+invmod.waila.status.activating=Activating
+invmod.waila.status.deactivated=Deactivated
 invmod.waila.wavenumber=Wave: 
 
+invmod.gui.nexus.level=Level
+invmod.gui.nexus.mobskilled=mobs killed
+invmod.gui.nexus.activated=Activated!
+invmod.gui.nexus.activating=Activating...
+invmod.gui.nexus.power=Power
+invmod.gui.nexus.areyousure=Are you sure?
 
 invmod.message.probe.rangechanged=Nexus range changed to: %s
 invmod.message.probe.cannotchangerange=Nexus is currently active! Range: %s
