@@ -1131,7 +1131,6 @@ public abstract class EntityIMLiving extends EntityCreature implements IMob, IPa
 		setFire(8);
 	}
 
-	
 	protected boolean onPathBlocked(Path path, INotifyTask asker) {
 		return false;
 	}
@@ -1140,10 +1139,13 @@ public abstract class EntityIMLiving extends EntityCreature implements IMob, IPa
 	protected void dealFireDamage(int i) {
 		super.dealFireDamage(i * this.flammability);
 	}
+
 	@Override
 	protected void dropFewItems(boolean flag, int amount) {
-		if (this.rand.nextInt(4) == 0) {
-			entityDropItem(new ItemStack(mod_Invasion.itemSmallRemnants, 1), 0.0F);
+		if (mod_Invasion.getMobsDropSmallRemnants()) {				
+			if (this.rand.nextInt(4) == 0) {
+				entityDropItem(new ItemStack(mod_Invasion.itemSmallRemnants, 1), 0.0F);
+			}
 		}
 	}
 

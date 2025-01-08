@@ -167,7 +167,9 @@ public class mod_Invasion
 	//NOOB HAUS: Declare them values.. Declare em good
 	private static boolean alreadyNotified;
 	private static boolean updateNotifications;
+	private static boolean enableLog;
 	private static boolean destructedBlocksDrop;
+	private static boolean mobsDropSmallRemnants;
 	private static boolean craftItemsEnabled;
 	private static boolean debugMode;
 	private static int guiIdNexus;
@@ -181,7 +183,6 @@ public class mod_Invasion
 	private static int maxNightMobs;
 	private static float nightMobStatsScaling;
 	private static boolean nightMobsBurnInDay;
-	private static boolean enableLog;
 	
 	//mobhealth
 	public static HashMap<String, Integer> mobHealthNightspawn = new HashMap();
@@ -242,7 +243,7 @@ public class mod_Invasion
 		catch (Exception e) 
 		{
 			logOut = null;
-			log("Couldn't write to logfile");
+			log("Couldn't write to log file");
 			log(e.getMessage());
 		}
 
@@ -253,9 +254,10 @@ public class mod_Invasion
 		configInvasion = new ConfigInvasion();
 		configInvasion.loadConfig(configFile);
 		
+		updateNotifications = configInvasion.getPropertyValueBoolean("update-messages-enabled", false);
 		enableLog = configInvasion.getPropertyValueBoolean("enable-log-file", false);
 		destructedBlocksDrop = configInvasion.getPropertyValueBoolean("destructed-blocks-drop", true);
-		updateNotifications = configInvasion.getPropertyValueBoolean("update-messages-enabled", false);
+		mobsDropSmallRemnants = configInvasion.getPropertyValueBoolean("mobs-drop-small-remnants", true);
 		//soundsEnabled = configInvasion.getPropertyValueBoolean("sounds-enabled", true);
 		craftItemsEnabled = configInvasion.getPropertyValueBoolean("craft-items-enabled", true);
 		debugMode = configInvasion.getPropertyValueBoolean("debug", false);
@@ -266,7 +268,7 @@ public class mod_Invasion
 
 		nightSpawnConfig();
 		loadHealthConfig();
-		//NOOB HAUS: Here a HashMap is done up for the block strength (what it takes for IM mob to dig thru it)
+		//NOOB HAUS: Here a HashMap is done up for the block strength (what it takes for IM mob to dig through it)
 		HashMap strengthOverrides = new HashMap();
 		for (int i = 1; i < 4096; i++) 
 		{
@@ -287,7 +289,7 @@ public class mod_Invasion
 
 		configInvasion.saveConfig(configFile, strengthOverrides, DEBUG_CONFIG);
 		
-		//Load the Things!!
+		//Load the things!
 		loadCreativeTabs();
 		loadBlocks();
 		loadItems();
@@ -346,7 +348,7 @@ public class mod_Invasion
 
 			@Override
 			public void onResourceManagerReload(IResourceManager resourcemanager) {
-				// FML forces a TExturePack reload after MC has finished initialising, allowing for mod icons to be registered at any point in init
+				// FML forces a TexturePack reload after MC has finished initialising, allowing for mod icons to be registered at any point in init
 				// we only want to run on the second and later icon reloads
 				if (!ranOnce) {
 					ranOnce = true;
@@ -981,6 +983,11 @@ public class mod_Invasion
 	public static boolean getDestructedBlocksDrop()
 	{
 		return destructedBlocksDrop;
+	}
+	
+	public static boolean getMobsDropSmallRemnants()
+	{
+		return mobsDropSmallRemnants;
 	}
 	
 }
