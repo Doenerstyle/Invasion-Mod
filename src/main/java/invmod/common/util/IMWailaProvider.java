@@ -31,13 +31,13 @@ public class IMWailaProvider implements IWailaDataProvider{
 		TileEntityNexus teNexus = (TileEntityNexus)accessor.getTileEntity();
 		if (teNexus != null){
 			if(teNexus.isActive()){
-				currenttip.add(StatCollector.translateToLocal("invmod.waila.status.active"));
+				currenttip.add(StatCollector.translateToLocal("invmod.waila.status") + " " + StatCollector.translateToLocal("invmod.waila.status.active"));
 				currenttip.add(StatCollector.translateToLocal("invmod.waila.wavenumber") + teNexus.getCurrentWave());
 				currenttip.add("HP: " + teNexus.getHp());
 			}else if(teNexus.isActivating()) {
-				currenttip.add(StatCollector.translateToLocal("invmod.waila.status.activating"));
+				currenttip.add(StatCollector.translateToLocal("invmod.waila.status") + " " + StatCollector.translateToLocal("invmod.waila.status.activating"));
 			}else{
-				currenttip.add(StatCollector.translateToLocal("invmod.waila.status.deactivated"));
+				currenttip.add(StatCollector.translateToLocal("invmod.waila.status") + " " + StatCollector.translateToLocal("invmod.waila.status.deactivated"));
 			}
 		}
 		return currenttip;
@@ -52,7 +52,8 @@ public class IMWailaProvider implements IWailaDataProvider{
 		registrar.registerBodyProvider(new IMWailaProvider(), BlockNexus.class);
 	}
 	
-	// Doenerstyle: Added after updating Waila (overrides the method), no idea what to return here
+	// Doenerstyle: Added after updating Waila, no idea what to return here.
+	@Override
 	public NBTTagCompound getNBTData(EntityPlayerMP player, TileEntity te, NBTTagCompound tag, World world, int x, int y, int z) {
 		return new NBTTagCompound();
 	}
