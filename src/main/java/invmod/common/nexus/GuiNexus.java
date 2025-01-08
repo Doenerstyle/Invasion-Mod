@@ -7,6 +7,8 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+
 import org.lwjgl.opengl.GL11;
 
 public class GuiNexus extends GuiContainer
@@ -24,26 +26,26 @@ public class GuiNexus extends GuiContainer
 @Override
   protected void drawGuiContainerForegroundLayer(int x, int y)
   {
-    this.fontRendererObj.drawString("Nexus - Level " + this.tileEntityNexus.getNexusLevel(), 46, 6, 4210752);
-    this.fontRendererObj.drawString(this.tileEntityNexus.getNexusKills() + " mobs killed", 96, 60, 4210752);
+    this.fontRendererObj.drawString(StatCollector.translateToLocal("tile.blockNexus.name") + " - " + StatCollector.translateToLocal("invmod.gui.nexus.level") + " " + this.tileEntityNexus.getNexusLevel(), 46, 6, 4210752);
+    this.fontRendererObj.drawString(this.tileEntityNexus.getNexusKills() + " " + StatCollector.translateToLocal("invmod.gui.nexus.mobskilled"), 96, 60, 4210752);
     this.fontRendererObj.drawString("R: " + this.tileEntityNexus.getSpawnRadius(), 142, 72, 4210752);
 
     if ((this.tileEntityNexus.getMode() == 1) || (this.tileEntityNexus.getMode() == 3))
     {
-      this.fontRendererObj.drawString("Activated!", 13, 62, 4210752);
-      this.fontRendererObj.drawString("Wave " + this.tileEntityNexus.getCurrentWave(), 55, 37, 4210752);
+      this.fontRendererObj.drawString(StatCollector.translateToLocal("invmod.gui.nexus.activated"), 13, 62, 4210752);
+      this.fontRendererObj.drawString(StatCollector.translateToLocal("invmod.waila.wavenumber") + this.tileEntityNexus.getCurrentWave(), 55, 37, 4210752);
     }
     else if (this.tileEntityNexus.getMode() == 2)
     {
-      this.fontRendererObj.drawString("Power:", 56, 31, 4210752);
+      this.fontRendererObj.drawString(StatCollector.translateToLocal("invmod.gui.nexus.power") + ":", 56, 31, 4210752);
       this.fontRendererObj.drawString("" + this.tileEntityNexus.getNexusPowerLevel(), 61, 44, 4210752);
     }
 
     if ((this.tileEntityNexus.isActivating()) && (this.tileEntityNexus.getMode() == 0))
     {
-      this.fontRendererObj.drawString("Activating...", 13, 62, 4210752);
+      this.fontRendererObj.drawString(StatCollector.translateToLocal("invmod.gui.nexus.activating"), 13, 62, 4210752);
       if (this.tileEntityNexus.getMode() != 4)
-        this.fontRendererObj.drawString("Are you sure?", 8, 72, 4210752);
+        this.fontRendererObj.drawString(StatCollector.translateToLocal("invmod.gui.nexus.areyousure"), 8, 72, 4210752);
     }
   }
 @Override
