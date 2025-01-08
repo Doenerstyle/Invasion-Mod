@@ -377,9 +377,10 @@ public class EntityIMPigEngy extends EntityIMMob implements ICanDig
         pathFinder.addNode(currentNode.xCoord, currentNode.yCoord + 1, currentNode.zCoord, PathAction.LADDER_UP_NZ);
       }
       return true;
+      // Doenerstyle: Return false for anything that is not a LADDER_TOWER_UP_xx, which affects 10 theoretically possible cases.
+    default:
+    	return false;
     }
-
-    return false;
   }
 	
 	@Override
