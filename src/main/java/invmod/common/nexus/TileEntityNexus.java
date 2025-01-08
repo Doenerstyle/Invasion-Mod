@@ -856,7 +856,7 @@ public class TileEntityNexus extends TileEntity implements INexusAccess, IInvent
 			this.nextAttackTime = ((int) (this.worldObj.getWorldTime() / 24000L * 24000L) + 14000 + days * 24000);
 		} else {
 			setMode(0);
-			}
+		}
 
 		this.waveSpawner.stop();
 		mod_Invasion.setInvasionEnded(this);
@@ -871,16 +871,17 @@ public class TileEntityNexus extends TileEntity implements INexusAccess, IInvent
 		for (EntityPlayer entityPlayer : players) 
 		{
 			long time = System.currentTimeMillis();
-			if (!this.boundPlayers.containsKey(entityPlayer.getDisplayName())) 
+			
+			// Doenerstyle: Sending a message to all Nexus-bound players, announcing that a new player was bound to the Nexus (also sent if the Nexus was last ticked > 5 minutes ago).
+			if ((!this.boundPlayers.containsKey(entityPlayer.getDisplayName())) ||
+				(time - ((Long) this.boundPlayers.get(entityPlayer.getDisplayName())).longValue() > BIND_EXPIRE_TIME)) 
 			{
-				this.boundPlayers.put(entityPlayer.getDisplayName(), Long.valueOf(time));
-				mod_Invasion.sendMessageToPlayers(this.getBoundPlayers(), EnumChatFormatting.DARK_GREEN, "invmod.message.nexus.lifenowbound", EnumChatFormatting.GREEN + entityPlayer.getDisplayName() + (entityPlayer.getDisplayName().toLowerCase().endsWith("s") ? "'" : "'s"));
-			} 
-			else if (time - ((Long) this.boundPlayers.get(entityPlayer.getDisplayName())).longValue() > 300000L) 
-			{
-				this.boundPlayers.put(entityPlayer.getDisplayName(), Long.valueOf(time));
-				mod_Invasion.sendMessageToPlayers(this.getBoundPlayers(), EnumChatFormatting.DARK_GREEN, "invmod.message.nexus.lifenowbound", EnumChatFormatting.GREEN + entityPlayer.getDisplayName() + (entityPlayer.getDisplayName().toLowerCase().endsWith("s") ? "'" : "'s"));
+				String playername = EnumChatFormatting.GREEN + entityPlayer.getDisplayName() + (entityPlayer.getDisplayName().toLowerCase().endsWith("s") ? "'" : "'s");
+				mod_Invasion.sendMessageToPlayers(this.getBoundPlayers(), EnumChatFormatting.DARK_GREEN, "invmod.message.nexus.lifenowbound", playername);
+				mod_Invasion.sendMessageToPlayer((EntityPlayerMP) entityPlayer, EnumChatFormatting.DARK_GREEN, "invmod.message.nexus.lifenowbound", playername);
 			}
+			// Doenerstyle: This either adds the (not yet bound) player to the bound players or resets the time to "now", allowing to check above whether the Nexus was last ticked within 5 minutes.
+			this.boundPlayers.put(entityPlayer.getDisplayName(), time);
 		}
 	}
 
@@ -930,8 +931,6 @@ public class TileEntityNexus extends TileEntity implements INexusAccess, IInvent
 					if (player != null) {
 						player.getEntityWorld().playSoundAtEntity(player,"mob.enderdragon.end", 4, 1);
 						player.attackEntityFrom(DamageSource.magic, 500.0F);
-                                                 
-      
 					}
 
 				}
