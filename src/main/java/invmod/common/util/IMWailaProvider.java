@@ -31,13 +31,13 @@ public class IMWailaProvider implements IWailaDataProvider{
 		TileEntityNexus teNexus = (TileEntityNexus)accessor.getTileEntity();
 		if (teNexus != null){
 			if(teNexus.isActive()){
-				currenttip.add(StatCollector.translateToLocal("invmod.waila.status") + " " + StatCollector.translateToLocal("invmod.waila.status.active"));
+				currenttip.add(StatCollector.translateToLocal("invmod.waila.status") + StatCollector.translateToLocal("invmod.waila.status.active"));
 				currenttip.add(StatCollector.translateToLocal("invmod.waila.wavenumber") + teNexus.getCurrentWave());
 				currenttip.add("HP: " + teNexus.getHp());
 			}else if(teNexus.isActivating()) {
-				currenttip.add(StatCollector.translateToLocal("invmod.waila.status") + " " + StatCollector.translateToLocal("invmod.waila.status.activating"));
+				currenttip.add(StatCollector.translateToLocal("invmod.waila.status") + StatCollector.translateToLocal("invmod.waila.status.activating"));
 			}else{
-				currenttip.add(StatCollector.translateToLocal("invmod.waila.status") + " " + StatCollector.translateToLocal("invmod.waila.status.deactivated"));
+				currenttip.add(StatCollector.translateToLocal("invmod.waila.status") + StatCollector.translateToLocal("invmod.waila.status.deactivated"));
 			}
 		}
 		return currenttip;

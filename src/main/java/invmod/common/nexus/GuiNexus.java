@@ -37,7 +37,7 @@ public class GuiNexus extends GuiContainer
     }
     else if (this.tileEntityNexus.getMode() == 2)
     {
-      this.fontRendererObj.drawString(StatCollector.translateToLocal("invmod.gui.nexus.power") + ":", 56, 31, 4210752);
+      this.fontRendererObj.drawString(StatCollector.translateToLocal("invmod.gui.nexus.power"), 56, 31, 4210752);
       this.fontRendererObj.drawString("" + this.tileEntityNexus.getNexusPowerLevel(), 61, 44, 4210752);
     }
 
