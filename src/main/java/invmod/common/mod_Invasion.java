@@ -108,8 +108,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.resources.IReloadableResourceManager;
 
-//basic @Mod 
-@Mod(modid = "mod_Invasion", name = "Invasion", version = "1.1.5")
+@Mod(modid = "mod_Invasion", name = "Invasion", version = "1.2.1")
 public class mod_Invasion 
 {
 
