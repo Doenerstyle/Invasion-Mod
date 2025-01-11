@@ -1,0 +1,80 @@
+tile.blockNexus.name=入侵核心
+
+item.phaseCrystal.name=相位水晶
+item.riftFlux.name=裂隙流涌
+
+item.nexusCatalyst.name=激活剂
+item.infusedSword.name=炼化之剑
+item.searingBow.name=灼热之弓
+item.catalystMixture.name=激活剂泥
+item.stableCatalystMixture.name=稳定激活剂泥
+item.stableNexusCatalyst.name=稳定激活剂
+item.dampingAgent.name=抑制剂
+item.strongDampingAgent.name=强抑制剂
+item.strangeBone.name=奇怪的骨头
+item.strongCatalyst.name=强激活剂
+item.engyHammer.name=工程师锤
+nexusAdjuster.name=入侵范围调整器
+materialProbe.name=材料探测器
+emptyTrap.name=陷阱模板
+riftTrap.name=裂刃陷阱
+flameTrap.name=火焰陷阱
+item.smallRemnants.name=裂隙余波
+item.debugWand.name=Debug棒
+
+itemGroup.invasionTab=入侵
+
+entity.mod_Invasion.IMZombie.name=IM僵尸
+entity.mod_Invasion.IMZombiePigman.name=IM僵尸猪人
+entity.mod_Invasion.IMSkeleton.name=IM骷髅
+entity.mod_Invasion.IMSpider.name=IM蜘蛛
+entity.mod_Invasion.IMPigEngy.name=IM猪人工程师
+entity.mod_Invasion.IMBird.name=[WIP]IM鸟
+entity.mod_Invasion.IMThrower.name=IM肉山投掷者
+entity.mod_Invasion.IMWolf.name=IM狼
+entity.mod_Invasion.IMCreeper.name=IM苦力怕
+entity.mod_Invasion.IMGiantBird.name=IM秃鹫
+entity.mod_Invasion.IMBoulder.name=石巨人
+entity.mod_Invasion.IMEgg.name=蜘蛛卵
+entity.mod_Invasion.IMTrap.name=陷阱
+entity.mod_Invasion.IMImp.name=IM小鬼
+
+invmod.waila.status=状态: 
+invmod.waila.status.active=已激活
+invmod.waila.status.activating=激活中
+invmod.waila.status.deactivated=停用
+invmod.waila.wavenumber=波数: 
+
+invmod.gui.nexus.level=Level
+invmod.gui.nexus.mobskilled=只怪物已被击杀
+invmod.gui.nexus.activated=核心已激活！
+invmod.gui.nexus.activating=激活中...
+invmod.gui.nexus.power=强度:
+invmod.gui.nexus.areyousure=现在还有反悔的机会...
+invmod.message.probe.rangechanged=入侵范围改变至: %s
+invmod.message.probe.cannotchangerange=入侵核心已被激活! 入侵范围: %s
+invmod.message.probe.blockstrength=方块强度: %s
+
+invmod.message.nexus.hpat=核心剩余 %s HP!
+invmod.message.nexus.stableagain=核心已趋于稳定!
+invmod.message.nexus.unleashingenergy=释放内部能量...
+invmod.message.nexus.stabilizedto=核心稳定度达到 %s.
+invmod.message.nexus.alreadyactivated=不能在已经处于入侵状态时重复激活核心!
+invmod.message.nexus.listboundplayers=被绑定的玩家: %s 
+invmod.message.nexus.firstwavesoon=准备好，勇士们! 第一波入侵即将来袭!
+invmod.message.nexus.nightlooming=不怀好意的黑影接近了核心...
+invmod.message.nexus.activatedandstable=核心被激活并进入持续模式!
+invmod.message.nexus.couldnotactivate=无法激活核心!
+invmod.message.nexus.destabilizing=狂暴的能量正在扰乱核心!
+invmod.message.nexus.lifenowbound=%s 已经和核心绑定.
+invmod.message.nexus.severelydamaged=核心已经被严重损坏!
+invmod.message.nexus.destroyed=核心被毁 - 怪物们取得了胜利!
+
+invmod.message.wave.complete=第 %s 波即将结束!
+invmod.message.wave.begin=第 %s 波即将来袭...
+invmod.message.wave.group=怪物开始聚集...
+invmod.message.wave.groupsmall=怪物开始聚成小团...
+invmod.message.wave.grouplarge=一大波怪物正在袭来!
+
+invmod.message.bone.nonearbynexus1=狼很抗拒这根奇怪的骨头
+invmod.message.bone.nonearbynexus2=也许缺少了一个关键的方块...
